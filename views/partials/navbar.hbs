@@ -1,15 +1,11 @@
 <div class="navigation">
 
-<li class="active">
-    <a href="#">QEB</a>
-</li>
+    <li><a href="#">QEB</a></li>
 
-<li class="active">
-    <a href="/">Главная</a>
-</li>
-        
-<li>
-    <a href="/login">Войти</a>
-</li>
-
+    {{#if isAuth}}
+        <li class="active"><a href="/card">Выбрать тему</a></li>
+        <li><a href="/logout">Выйти</a></li>
+        {{else}}
+        <li class="active"><a href="/">Главная</a></li>
+    {{/if}}
 </div>

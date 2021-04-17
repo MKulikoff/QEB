@@ -1,26 +1,26 @@
 <div class="container">
-        <form>
+        <form action="registration" method="POST">
             <div class="form-control">
                 <label for="nickname">Create your nickname</label>
-                <input type="nickname" id="nickname" placeholder="Enter your nickname">
+                <input type="text" id="nickname" name="nickname" placeholder="Enter your nickname" class="validate">
             </div>
 
             
             <div class="form-control">
                 <label for="email">Email</label>
-                <input type="email" id="email" placeholder="Enter your email">
+                <input type="email" id="email" name="email" placeholder="Enter your email" class="validate">
             </div>
 
             <div class="form-control">
                 <label for="password">Password</label>
-                <input type="password" id="password" placeholder="Password">
+                <input type="password" id="password" name="password" placeholder="Password" class="validate">
             </div>
 
             <div class="form-control">
-                <label for="repeat-password">Repeat password</label>
-                <input type="password " id="repeat-password" placeholder="Repeat password">
+                <label for="rpassword">Repeat password</label>
+                <input type="password " id="rpassword" placeholder="Repeat password" class="validate">
             </div>
-            <button class="btn">Sign Up</button>
+            <button class="btn" type="submit">Sign Up</button>
             <small>Have an account already? <a href="/login">Log in</a></small>
         </form>
     </div>
