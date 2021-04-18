@@ -1,3 +1,8 @@
+<div class="registration">
+       {{#if registrationError}}
+            <p class="alert">{{registrationError}}</p>
+        {{/if}}
+
 <div class="container">
         <form action="registration" method="POST">
             <div class="form-control">
@@ -24,3 +29,4 @@
             <small>Have an account already? <a href="/login">Log in</a></small>
         </form>
     </div>
+</div>
