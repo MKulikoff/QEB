@@ -1,4 +1,6 @@
 //Imports
+// const csurf = require('csurf')
+const flash = require('connect-flash');
 const express = require('express') // импорт Express, библиотека, модуль
 const exphbs = require('express-handlebars') //Установка HTML пакета
 const mongoose = require('mongoose')
@@ -6,8 +8,6 @@ const app = express()
 const path = require('path')
 const session = require('express-session')
 const MongoDBStore = require('connect-mongodb-session')(session);
-//Models
-const User = require('./models/user')
 //Routes
 const homeRoutes = require('./routes/home')
 const loginRoutes = require('./routes/login')
@@ -44,6 +44,8 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.urlencoded({extended: true}))
 
+// app.use(csurf())
+app.use(flash())
 app.use(varMiddleware)
 
 app.use(homeRoutes)

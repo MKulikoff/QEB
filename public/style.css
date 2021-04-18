@@ -157,6 +157,14 @@ input:not([type="checkbox"]) {
     margin: 5px 0;
 }
 
+.alert {
+    border-radius: 10px;
+    background-color: rgba(255,0,0, 0.3);
+    text-align: center;
+    padding: 0.5rem;
+    margin-bottom: 3rem;
+}
+
 @media(max-width: 768px) {
     .container {
         flex-direction: column;

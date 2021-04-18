@@ -6,8 +6,8 @@ const router = Router()
 
 router.get('/login', async (req, res) => {
     res.render('login', {
-        title: 'Авторизация'
-    
+        title: 'Войти',
+        loginError: req.flash('error')
     })
 })
 
@@ -36,13 +36,14 @@ router.post('/login', async (req, res) => {
                 } else {
                     res.redirect('/')
                 }
-            }))
-
-            } else {
+            }))} 
+            else {
+                req.flash('error', 'Неверный пароль')
                 res.redirect('/login')
             }
         } else {
-            res.redirect('/registration')
+            req.flash('error', 'Пользователя с таким email не существует')
+            res.redirect('/login')
         }
     } catch (error) {
         console.log(error)
