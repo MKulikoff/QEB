@@ -25,6 +25,9 @@
                 <label for="rpassword">Repeat password</label>
                 <input type="password " id="rpassword" placeholder="Repeat password" class="validate">
             </div>
+
+             <input type="hidden" name="_csrf" value="{{csrf}}">
+
             <button class="btn" type="submit">Sign Up</button>
             <small>Have an account already? <a href="/login">Log in</a></small>
         </form>
