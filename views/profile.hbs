@@ -1,0 +1,41 @@
+
+<div class="profile_container">
+    <form class="profile_form" action="/profile" method="POST" enctype="multipart/form-data">
+        {{#if user.avatarUrl}}
+    <div class="profile_image">
+        <img src="/{{user.avatarUrl}}" alt="avatar-{{user.name}}">
+        <input type="file" name="avatar">
+        <input type="hidden" name="_csrf" value="{{csrf}}">
+        <button class="profile_img_btn" type="submit">Сменить аватар</button>
+    </div>
+    {{else}}
+    <div class="profile_image">
+       <img src="https://www.vanrackingsolutions.co.uk/images/media/medium/no_image.png" alt=""> 
+       <input type="file" name="avatar">
+       <input type="hidden" name="_csrf" value="{{csrf}}">
+       <button class="profile_img_btn" type="submit" name="avatar">Сменить аватар</button>
+
+    </div>
+    {{/if}}
+    <div class="profile_info">
+        <div class="form-control">
+            <label for="nickname">Nickname</label>
+            <input type="text">
+        </div>
+        <div class="form-control">
+            <label for="email">Email</label>
+            <input type="text" disabled=true>
+        </div>
+        <div class="form-control">
+            <label for="firstName">firstName</label>
+            <input type="text">
+        </div>
+        <div class="form-control">
+        <label for="lastName">lastName</label>
+        <input type="text">
+        </div>
+        <button class="profile_edit_btn" type="submit">Редактировать</button>
+    </div>
+     
+    </form>
+</div>
