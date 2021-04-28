@@ -4,13 +4,12 @@
         {{/if}}
 
 <div class="container">
-        <form action="registration" method="POST">
+        <form class="auth_form" action="registration" method="POST">
             <div class="form-control">
                 <label for="nickname">Create your nickname</label>
                 <input type="text" id="nickname" name="nickname" placeholder="Enter your nickname" class="validate">
             </div>
 
-            
             <div class="form-control">
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" placeholder="Enter your email" class="validate">
@@ -23,7 +22,7 @@
 
             <div class="form-control">
                 <label for="rpassword">Repeat password</label>
-                <input type="password " id="rpassword" placeholder="Repeat password" class="validate">
+                <input type="password" id="rpassword"  name="rpassword" placeholder="Repeat password" class="validate">
             </div>
 
              <input type="hidden" name="_csrf" value="{{csrf}}">

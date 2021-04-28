@@ -12,11 +12,14 @@ const keys = require('./keys')
 //Routes
 const homeRoutes = require('./routes/home')
 const loginRoutes = require('./routes/login')
+const profileRoutes = require('./routes/profile')
 const registrationRoutes = require('./routes/registration')
 const cardRoutes = require('./routes/card')
 //Middleware
 const varMiddleware = require('./middleware/variables')
-
+const notfoundMiddleware = require('./middleware/notfound')
+const fileMiddleware = require('./middleware/file')
+const userMiddleware = require('./middleware/user')
 //Handlebars
 app.engine('hbs', exphbs({
     defaultLayout: 'main',
@@ -42,17 +45,29 @@ app.use(session({
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')))
+app.use('/images', express.static(path.join(__dirname, 'images')))
 app.use(express.urlencoded({extended: true}))
 
+
+app.use(fileMiddleware.single('avatar'))
 app.use(csurf())
-app.use(flash())
 app.use(varMiddleware)
+app.use(userMiddleware)
+app.use(flash())
+
+
+
+
 
 app.use(homeRoutes)
 app.use(loginRoutes)
+app.use(profileRoutes)
 app.use(registrationRoutes)
 app.use(cardRoutes)
 
+
+
+app.use(notfoundMiddleware)
 
 const PORT = process.env.PORT || 5000
 

@@ -1,10 +1,12 @@
 const {Router} = require('express')
 const bcrypt = require('bcryptjs')
+const {validationResult} = require('express-validator/check')
 const User = require('../models/user')
 const nodemailer = require('nodemailer')
 const sendgrid = require('nodemailer-sendgrid-transport')
 const regEmail = require('../emails/registration')
 const keys = require('../keys')
+const {registerValidators} = require('../utils/validators')
 const router = Router()
 
 
@@ -20,15 +22,15 @@ router.get('/registration', function (req, res) {
 })
 
 
-router.post('/registration', async (req, res) => {
+router.post('/registration', registerValidators, async (req, res) => {
     try {
         const {email, nickname, password} = req.body
-        const candidate = await User.findOne({email})
-
-        if(candidate) {
-            req.flash('error', 'Пользователь с таким email уже существует.')
-            res.redirect('/registration')
-        } else {
+    
+        const errors = validationResult(req)
+        if (!errors.isEmpty()) {
+            req.flash('error', errors.array()[0].msg)
+            return res.status(422).redirect('/registration')
+        }
             const hashPassword = await bcrypt.hash(password, 10)
             req.session.isAuthenticated = true
             const user = new User({
@@ -40,9 +42,9 @@ router.post('/registration', async (req, res) => {
             res.redirect('/')
             await transporter.sendMail(regEmail(email))
         }
-    } catch (error) {
+     catch (error) {
         console.log(error)
-    }
+         }
 })
 
 module.exports = router 
