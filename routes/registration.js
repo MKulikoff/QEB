@@ -24,7 +24,7 @@ router.get('/registration', function (req, res) {
 
 router.post('/registration', registerValidators, async (req, res) => {
     try {
-        const {email, nickname, password} = req.body
+        const {email, nickname, password, isAdmin} = req.body
     
         const errors = validationResult(req)
         if (!errors.isEmpty()) {
@@ -36,7 +36,8 @@ router.post('/registration', registerValidators, async (req, res) => {
             const user = new User({
                 email,
                 nickname, 
-                password: hashPassword
+                password: hashPassword,
+                isAdministrator
             })
             await user.save()
             res.redirect('/')
