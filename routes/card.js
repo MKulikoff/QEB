@@ -9,4 +9,8 @@ router.get('/card', auth, async (req, res) => {
     
 })
 
+router.post('/card', auth, async (req, res) => {
+    
+})
+
 module.exports = router 

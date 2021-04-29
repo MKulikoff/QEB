@@ -4,35 +4,47 @@
         {{#if user.avatarUrl}}
     <div class="profile_image">
         <img src="/{{user.avatarUrl}}" alt="avatar-{{user.name}}">
-        <input type="file" name="avatar">
+        <label>
+           <input type="file" name="avatar" class="avatar_input">  
+         </label> 
         <input type="hidden" name="_csrf" value="{{csrf}}">
         <button class="profile_img_btn" type="submit">Сменить аватар</button>
-    </div>
+        </div>
     {{else}}
     <div class="profile_image">
        <img src="https://www.vanrackingsolutions.co.uk/images/media/medium/no_image.png" alt=""> 
-       <input type="file" name="avatar">
-       <input type="hidden" name="_csrf" value="{{csrf}}">
-       <button class="profile_img_btn" type="submit" name="avatar">Сменить аватар</button>
-
+        <label>
+           <input type="file" name="avatar" class="avatar_input">  
+         </label> 
+         <input type="hidden" name="_csrf" value="{{csrf}}">
+         <button class="profile_img_btn" type="submit" name="avatar">Сменить аватар</button>
+        </div>
     </div>
     {{/if}}
     <div class="profile_info">
         <div class="form-control">
-            <label for="nickname">Nickname</label>
-            <input type="text">
+            <label for="nickname">Никнейм</label>
+            <input type="text" disabled=true value="{{user.nickname}}">
         </div>
         <div class="form-control">
             <label for="email">Email</label>
-            <input type="text" disabled=true>
+            <input type="text" disabled=true value="{{user.email}}"> 
         </div>
         <div class="form-control">
-            <label for="firstName">firstName</label>
-            <input type="text">
+            <label for="firstName">Имя</label>
+            <input type="text" name="name" value="{{user.firstName}}">
         </div>
         <div class="form-control">
-        <label for="lastName">lastName</label>
-        <input type="text">
+            <label for="lastName">Фамилия</label>
+            <input type="text" name="lastname" value="{{user.lastName}}">
+        </div>
+        <div class="form-control">
+            <label for="age">Возраст</label>
+            <input type="number" name="age" min="1" max="99" value="{{user.age}}">
+        </div>
+          <div class="form-control">
+            <label for="raiting">Рейтинг</label>
+            <input type="number" disabled="true" name="raiting" value="{{user.raiting}}">
         </div>
         <button class="profile_edit_btn" type="submit">Редактировать</button>
     </div>

@@ -8,7 +8,6 @@ router.get('/profile', auth, async (req, res) => {
         title: 'Выберите тему',
         user: req.user.toObject()
     })
-    
 })
 
 router.post('/profile', auth, async (req, res) => {
@@ -16,7 +15,10 @@ router.post('/profile', auth, async (req, res) => {
         const user = await User.findById(req.user._id)
 
         const toChange = {
-            name: req.body.name
+            firstName: req.body.name,
+            lastName: req.body.lastname,
+            age: req.body.age,
+            raiting: req.body.raiting
         }
         
         if(req.file) {

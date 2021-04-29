@@ -171,6 +171,10 @@ input:not([type="checkbox"]) {
 
 /* Profile */
 
+img {
+    width: 500px;
+    height: 500px;
+}
 .profile_container {
     margin: 20px;
 }
@@ -234,9 +238,17 @@ input:not([type="checkbox"]) {
     background-color: rgba(255,0,0, 0.5);
 }
 
-.profile_btn {
-    
+.avatar_upload {
+position: relative;
+width: 250px;
+height: 40px;
+background: #4169E1;
+border-radius: 10px;
+color: #fff;
+text-align: center;
 }
+
+
 @media(max-width: 768px) {
     .container {
         flex-direction: column;

@@ -18,6 +18,18 @@ const userSchema = new Schema({
   },
   avatarUrl: {
     type: String
+  },
+  firstName: {
+    type: String
+  },
+  lastName: String, 
+  age: Number, 
+  raiting: {
+    type: Number,
+    default: 0
+  },
+  isAdministrator: {
+    type: Boolean, 
   }
 })
 
