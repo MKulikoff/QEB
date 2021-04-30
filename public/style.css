@@ -5,9 +5,10 @@
 }
 
 .navigation {
-    position: absolute;
+    position: relative;
     width: 100%;
     display: flex;
+    margin-bottom: 1em;
     justify-content: space-between;
     top: 0; 
     left: 0; 
@@ -28,7 +29,6 @@ li a {
 
 
 body {
-    display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
@@ -171,7 +171,12 @@ input:not([type="checkbox"]) {
 
 /* Profile */
 
-img {
+.profile_section {
+    display: flex;
+    justify-content: center;
+}
+
+.avatar_img {
     width: 500px;
     height: 500px;
 }
@@ -248,6 +253,67 @@ color: #fff;
 text-align: center;
 }
 
+/* Add Card */
+
+.add_section {
+    display: flex;
+    justify-content: center;
+}
+
+.add_container {
+    width: 80%;
+}
+
+.add_container h1 {
+    text-align: center;
+}
+
+.add_container input {
+    padding: 10px;
+    margin: 5px;
+}
+
+.add_container .description {
+    padding-bottom: 50px;
+}
+
+.add_container label {
+    margin: 5px;
+}
+.add_container button {
+    width: 30%;
+    align-items: center;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+/* Cards */
+
+.card {
+    display: flex;
+    align-items: center;
+}
+
+.card_btn {
+    cursor: pointer;
+    background-color: #141c2c;
+    border: 2px solid #141c2c;
+    border-radius: 3px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: inherit;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 10px;
+    margin: 20px 0px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 20%;
+}
 
 @media(max-width: 768px) {
     .container {

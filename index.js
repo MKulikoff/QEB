@@ -2,7 +2,9 @@
 const csurf = require('csurf')
 const flash = require('connect-flash');
 const express = require('express') // импорт Express, библиотека, модуль
+const Handlebars = require('handlebars')
 const exphbs = require('express-handlebars') //Установка HTML пакета
+const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access')
 const mongoose = require('mongoose')
 const app = express()
 const path = require('path')
@@ -15,6 +17,7 @@ const loginRoutes = require('./routes/login')
 const profileRoutes = require('./routes/profile')
 const registrationRoutes = require('./routes/registration')
 const cardRoutes = require('./routes/card')
+const addRouters = require('./routes/add')
 //Middleware
 const varMiddleware = require('./middleware/variables')
 const notfoundMiddleware = require('./middleware/notfound')
@@ -23,7 +26,8 @@ const userMiddleware = require('./middleware/user')
 //Handlebars
 app.engine('hbs', exphbs({
     defaultLayout: 'main',
-    extname: 'hbs'
+    extname: 'hbs',
+    handlebars: allowInsecurePrototypeAccess(Handlebars)
 }));
 app.set('view engine', 'hbs');
 //Sessions
@@ -56,15 +60,12 @@ app.use(userMiddleware)
 app.use(flash())
 
 
-
-
-
 app.use(homeRoutes)
 app.use(loginRoutes)
 app.use(profileRoutes)
 app.use(registrationRoutes)
 app.use(cardRoutes)
-
+app.use(addRouters)
 
 
 app.use(notfoundMiddleware)
