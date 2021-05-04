@@ -13,8 +13,18 @@ router.get('/card', auth, async (req, res) => {
     
 })
 
-router.post('/card', auth, async (req, res) => {
-    
+router.get('/theme/:id', auth, async (req, res) => {
+    try { 
+            const cards = await Card.findById(req.params.id)
+            res.render('theme', {
+            title: `${cards.title}`,
+            cards
+        })
+        
+    } catch (error) {
+        console.log(error)
+    }
+   
 })
 
 

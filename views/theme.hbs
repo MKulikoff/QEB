@@ -1,0 +1,19 @@
+<div class="theme_container">
+    <div class="theme">
+        <a href="/theme-edit/{{cards.id}}">Редактировать</a>
+        <h1>{{cards.title}}</h1>
+        <p>{{cards.description}}</p>
+        <img src="{{cards.img}}" alt="{{cards.title}}">
+        <div class="row">
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input type="hidden" name="_csrf" value="{{csrf}}">
+                        <input type="hidden" name="id" value="{{cards.id}}">
+                        <p>{{cards.text}}</p>
+                    </div>
+                </div>
+        </div>
+        </form>
+    </div>
+</div>

@@ -12,7 +12,17 @@ const cardSchema = new Schema({
     img: {
         type: String, 
         required: true
-    }
+    },
+    text: String
 })
+
+cardSchema.method('toClient', function() {
+    const card = this.toObject()
+  
+    card.id = card._id
+    delete card._id
+  
+    return card
+  })
 
 module.exports = model('Card', cardSchema)
