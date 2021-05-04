@@ -1,6 +1,8 @@
 <div class="theme_container">
     <div class="theme">
+        {{#if isAdmin}}
         <a href="/theme-edit/{{cards.id}}">Редактировать</a>
+        {{/if}}
         <h1>{{cards.title}}</h1>
         <p>{{cards.description}}</p>
         <img src="{{cards.img}}" alt="{{cards.title}}">

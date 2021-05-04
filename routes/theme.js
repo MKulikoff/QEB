@@ -1,9 +1,10 @@
 const {Router} = require('express')
 const auth = require('../middleware/auth')
 const Card = require('../models/card')
+const admin = require('../middleware/admin')
 const router = Router()
 
-router.get('/theme-edit/:id', auth, async (req, res) => {
+router.get('/theme-edit/:id', auth, admin, async (req, res) => {
     const card = await Card.findById(req.params.id)
     res.render('theme-edit', {
         title: 'Edit Theme',
@@ -11,7 +12,7 @@ router.get('/theme-edit/:id', auth, async (req, res) => {
     })
 })
 
-router.post('/theme-edit', auth, async (req, res) => {
+router.post('/theme-edit', auth, admin, async (req, res) => {
     try {
         const cards = await Card.findById(req.body.id)
         const toChange = {

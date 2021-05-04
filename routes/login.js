@@ -121,6 +121,7 @@ router.post('/login', async (req, res) => {
         const candidate = await User.findOne({ email })
         if (candidate) {
           const areSame = await bcrypt.compare(password, candidate.password)
+          req.session.isAdministrator = candidate.isAdministrator
     
           if (areSame) {
             req.session.user = candidate
