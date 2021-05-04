@@ -1,16 +1,17 @@
 const {Router} = require('express')
 const auth = require('../middleware/auth')
 const Card = require('../models/card')
+const admin = require('../middleware/admin')
 const router = Router()
 
-router.get('/add', auth, async (req, res) => {
+router.get('/add', auth, admin, async (req, res) => {
     res.render('add', {
         title: 'Добавить тему'
     })
     
 })
 
-router.post('/add', auth, async (req, res) => {
+router.post('/add', auth, admin, async (req, res) => {
     const card = new Card ({
         title: req.body.title,
         description: req.body.description,

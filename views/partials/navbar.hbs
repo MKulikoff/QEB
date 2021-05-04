@@ -3,9 +3,11 @@
     <li><a href="#">QEB</a></li>
 
     {{#if isAuth}}
+        {{#if isAdmin}}
+        <li><a href="/add">Добавить тему</a></li>
+        {{/if}}
         <li class="active"><a href="/card">Выбрать тему</a></li>
         <li><a href="/profile">Профиль</a></li>
-        <li><a href="/add">Добавить тему</a></li>
         <li><a href="/logout">Выйти</a></li>
         {{else}}
         <li class="active"><a href="/">Главная</a></li>
