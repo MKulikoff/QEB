@@ -18,6 +18,7 @@ const profileRoutes = require('./routes/profile')
 const registrationRoutes = require('./routes/registration')
 const cardRoutes = require('./routes/card')
 const addRouters = require('./routes/add')
+const themeRouters = require('./routes/theme')
 //Middleware
 const varMiddleware = require('./middleware/variables')
 const notfoundMiddleware = require('./middleware/notfound')
@@ -66,6 +67,7 @@ app.use(profileRoutes)
 app.use(registrationRoutes)
 app.use(cardRoutes)
 app.use(addRouters)
+app.use(themeRouters)
 
 
 app.use(notfoundMiddleware)
