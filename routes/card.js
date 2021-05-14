@@ -1,5 +1,6 @@
 const {Router} = require('express')
 const auth = require('../middleware/auth')
+const admin = require('../middleware/admin')
 const Card = require('../models/card')
 const router = Router()
 
@@ -26,7 +27,6 @@ router.get('/theme/:id', auth, async (req, res) => {
     }
    
 })
-
 
 
 module.exports = router 
