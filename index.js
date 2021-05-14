@@ -2,6 +2,7 @@
 const csurf = require('csurf')
 const flash = require('connect-flash');
 const express = require('express') // импорт Express, библиотека, модуль
+// const multer = require('multer')
 const Handlebars = require('handlebars')
 const exphbs = require('express-handlebars') //Установка HTML пакета
 const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access')
@@ -22,7 +23,8 @@ const themeRouters = require('./routes/theme')
 //Middleware
 const varMiddleware = require('./middleware/variables')
 const notfoundMiddleware = require('./middleware/notfound')
-const fileMiddleware = require('./middleware/file')
+const profileFileMiddleware = require('./middleware/profileFile')
+const testFileMiddleware = require('./middleware/testFile')
 const userMiddleware = require('./middleware/user')
 //Handlebars
 app.engine('hbs', exphbs({
@@ -51,10 +53,17 @@ app.use(session({
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')))
 app.use('/images', express.static(path.join(__dirname, 'images')))
+app.use('/questions', express.static(path.join(__dirname, 'questions')))
 app.use(express.urlencoded({extended: true}))
 
+//Multer 
 
-app.use(fileMiddleware.single('avatar'))
+
+
+app.use(profileFileMiddleware.single('avatar'))
+app.use(testFileMiddleware.single('test'))
+
+
 app.use(csurf())
 app.use(varMiddleware)
 app.use(userMiddleware)

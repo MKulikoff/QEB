@@ -13,7 +13,10 @@ const cardSchema = new Schema({
         type: String, 
         required: true
     },
-    text: String
+    text: String,
+    question: {
+        type: String,
+    }
 })
 
 cardSchema.method('toClient', function() {

@@ -14,7 +14,7 @@ const transporter = nodemailer.createTransport(sendgrid({
 }))
 
 
-router.get('/login', async (req, res) => {
+router.get('/login',  async (req, res) => {
     res.render('login', {
         title: 'Войти',
         loginError: req.flash('error')

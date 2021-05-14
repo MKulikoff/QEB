@@ -24,7 +24,7 @@ router.get('/registration', function (req, res) {
 
 router.post('/registration', registerValidators, async (req, res) => {
     try {
-        const {email, nickname, password, isAdmin} = req.body
+        const {email, nickname, password} = req.body
     
         const errors = validationResult(req)
         if (!errors.isEmpty()) {
@@ -32,15 +32,15 @@ router.post('/registration', registerValidators, async (req, res) => {
             return res.status(422).redirect('/registration')
         }
             const hashPassword = await bcrypt.hash(password, 10)
-            req.session.isAuthenticated = true
+            req.session.isAuthenticated = false
             const user = new User({
                 email,
                 nickname, 
                 password: hashPassword,
-                isAdministrator
+                isAdministrator: false
             })
             await user.save()
-            res.redirect('/')
+            res.redirect('/login')
             await transporter.sendMail(regEmail(email))
         }
      catch (error) {
