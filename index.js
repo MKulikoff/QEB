@@ -21,10 +21,10 @@ const cardRoutes = require('./routes/card')
 const addRouters = require('./routes/add')
 const themeRouters = require('./routes/theme')
 //Middleware
-const varMiddleware = require('./middleware/variables')
+const varMiddleware =  require('./middleware/variables')
 const notfoundMiddleware = require('./middleware/notfound')
 const profileFileMiddleware = require('./middleware/profileFile')
-const testFileMiddleware = require('./middleware/testFile')
+// const testFileMiddleware = require('./middleware/testFile')
 const userMiddleware = require('./middleware/user')
 //Handlebars
 app.engine('hbs', exphbs({
@@ -61,7 +61,7 @@ app.use(express.urlencoded({extended: true}))
 
 
 app.use(profileFileMiddleware.single('avatar'))
-app.use(testFileMiddleware.single('test'))
+// app.use(testFileMiddleware.single('test'))
 
 
 app.use(csurf())
