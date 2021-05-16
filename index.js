@@ -9,6 +9,7 @@ const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-acce
 const mongoose = require('mongoose')
 const app = express()
 const path = require('path')
+const fs = require('fs')
 const session = require('express-session')
 const MongoDBStore = require('connect-mongodb-session')(session)
 const keys = require('./keys')
@@ -20,11 +21,12 @@ const registrationRoutes = require('./routes/registration')
 const cardRoutes = require('./routes/card')
 const addRouters = require('./routes/add')
 const themeRouters = require('./routes/theme')
+const addQuestionRouters = require('./routes/addQuestions')
+const questionsRouters = require('./routes/questions')
 //Middleware
 const varMiddleware =  require('./middleware/variables')
 const notfoundMiddleware = require('./middleware/notfound')
 const profileFileMiddleware = require('./middleware/profileFile')
-// const testFileMiddleware = require('./middleware/testFile')
 const userMiddleware = require('./middleware/user')
 //Handlebars
 app.engine('hbs', exphbs({
@@ -56,12 +58,8 @@ app.use('/images', express.static(path.join(__dirname, 'images')))
 app.use('/questions', express.static(path.join(__dirname, 'questions')))
 app.use(express.urlencoded({extended: true}))
 
-//Multer 
-
-
 
 app.use(profileFileMiddleware.single('avatar'))
-// app.use(testFileMiddleware.single('test'))
 
 
 app.use(csurf())
@@ -77,7 +75,8 @@ app.use(registrationRoutes)
 app.use(cardRoutes)
 app.use(addRouters)
 app.use(themeRouters)
-
+app.use(addQuestionRouters)
+app.use(questionsRouters)
 
 app.use(notfoundMiddleware)
 

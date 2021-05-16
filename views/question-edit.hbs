@@ -1,0 +1,40 @@
+<form action="/question-edit" method="POST">
+    <div class="input-field">
+          <input name="questionTitle" type="text" class="validate" required value="{{question.title}}">
+          <label for="questionTitle">Вопрос</label>
+          <span class="helper-text" data-error="Введите вопрос"></span>
+    </div>  
+
+     <div class="input-field">
+          <input name="optionA" type="text" class="validate" required value="{{question.optionA}}">
+          <label for="optionA">Вариант А</label>
+          <span class="helper-text" data-error="Укажите вариант А"></span>
+    </div> 
+
+    <div class="input-field">
+          <input name="optionB" type="text" class="validate" required value="{{question.optionB}}">
+          <label for="optionB">Вариант В</label>
+          <span class="helper-text" data-error="Укажите вариант B"></span>
+    </div> 
+
+    <div class="input-field">
+          <input name="optionC" type="text" class="validate" required value="{{question.optionC}}">
+          <label for="optionC">Вариант C</label>
+          <span class="helper-text" data-error="Укажите вариант C"></span>
+    </div> 
+
+    <div class="input-field">
+          <input name="optionD" type="text" class="validate" required value="{{question.optionD}}">
+          <label for="optionD">Вариант D</label>
+          <span class="helper-text" data-error="Укажите вариант D"></span>
+    </div> 
+
+      <input type="hidden" name="id" value="{{card.id}}">
+
+    <button type="submit" class="btn btn-primary">Cохранить изменения</button>
+</form>
+
+{{!-- <form action="/question/remove" method="POST">
+      <input type="hidden" name="id" value="{{course.id}}">
+      <button type="submit" class="btn red">Удалить</button>   
+</form> --
