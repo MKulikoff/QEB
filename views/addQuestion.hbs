@@ -1,0 +1,53 @@
+<div class="add_section">
+<div class="add_container">
+  <div class="add_h">
+    <h1>Добавить новый вопрос</h1>
+  </div>
+
+  {{#if error}}
+    <p class="alert">{{error}}</p>
+  {{/if}}
+
+  <form action="/addQuestion" method="POST" novalidate>
+    <div class="input-field">
+          <input name="questionTitle" type="text" class="validate" required value="{{question.title}}">
+          <label for="questionTitle">Вопрос</label>
+          <span class="helper-text" data-error="Введите вопрос"></span>
+    </div>  
+
+     <div class="input-field">
+          <input name="optionA" type="text" class="validate" required value="{{question.optionA}}">
+          <label for="optionA">Вариант А</label>
+          <span class="helper-text" data-error="Укажите вариант А"></span>
+    </div> 
+
+    <div class="input-field">
+          <input name="optionB" type="text" class="validate" required value="{{question.optionB}}">
+          <label for="optionB">Вариант В</label>
+          <span class="helper-text" data-error="Укажите вариант B"></span>
+    </div> 
+
+    <div class="input-field">
+          <input name="optionC" type="text" class="validate" required value="{{question.optionC}}">
+          <label for="optionC">Вариант C</label>
+          <span class="helper-text" data-error="Укажите вариант C"></span>
+    </div> 
+
+    <div class="input-field">
+          <input name="optionD" type="text" class="validate" required value="{{question.optionD}}">
+          <label for="optionD">Вариант D</label>
+          <span class="helper-text" data-error="Укажите вариант D"></span>
+    </div> 
+
+    <div class="input-field">
+          <input name="correctOption" type="text" class="validate" required value="{{question.correct}}">
+          <label for="correctOption">Правильный вариант</label>
+          <span class="helper-text" data-error="Укажите правильный вариант"></span>
+    </div> 
+
+    <input type="hidden" name="_csrf" value="{{csrf}}">
+
+    <button class="btn btn-primary">Добавить</button>
+  </form>
+</div>
+</div>
