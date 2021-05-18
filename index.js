@@ -23,6 +23,7 @@ const addRouters = require('./routes/add')
 const themeRouters = require('./routes/theme')
 const addQuestionRouters = require('./routes/addQuestions')
 const questionsRouters = require('./routes/questions')
+const editQuestionRouters = require('./routes/editQuestions')
 //Middleware
 const varMiddleware =  require('./middleware/variables')
 const notfoundMiddleware = require('./middleware/notfound')
@@ -77,6 +78,7 @@ app.use(addRouters)
 app.use(themeRouters)
 app.use(addQuestionRouters)
 app.use(questionsRouters)
+app.use(editQuestionRouters)
 
 app.use(notfoundMiddleware)
 
