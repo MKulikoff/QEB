@@ -1,4 +1,14 @@
-<form action="/question-edit" method="POST">
+<form action="/updateQuestion" method="POST">
+    <div class="add_section">
+<div class="add_container">
+  <div class="add_h">
+    <h1>Редактировать вопрос</h1>
+  </div>
+
+  {{#if error}}
+    <p class="alert">{{error}}</p>
+  {{/if}}
+
     <div class="input-field">
           <input name="questionTitle" type="text" class="validate" required value="{{question.title}}">
           <label for="questionTitle">Вопрос</label>
@@ -29,12 +39,24 @@
           <span class="helper-text" data-error="Укажите вариант D"></span>
     </div> 
 
-      <input type="hidden" name="id" value="{{card.id}}">
+    <div class="input-field">
+          <input name="correctOption" type="text" class="validate" required value="{{question.correctOption}}">
+          <label for="correctOption">Правильный вариант</label>
+          <span class="helper-text" data-error="Укажите правильный вариант"></span>
+    </div> 
 
-    <button type="submit" class="btn btn-primary">Cохранить изменения</button>
-</form>
+    <input type="hidden" name="id" value="{{question.id}}">
+    <button class="btn btn-primary">Сохранить изменения</button>
+    <input type="hidden" name="_csrf" value="{{csrf}}">  
+    </form>
 
-{{!-- <form action="/question/remove" method="POST">
-      <input type="hidden" name="id" value="{{course.id}}">
-      <button type="submit" class="btn red">Удалить</button>   
-</form> --
+    <form action="/deleteQuestion" method="POST">        
+            <button>Удалить</button>
+            <input type="hidden" name="_csrf" value="{{csrf}}">  
+          </form>
+        </div>
+       
+</div>
+</div>
+
+
