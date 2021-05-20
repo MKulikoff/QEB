@@ -2,6 +2,12 @@
     <div class="theme">
         {{#if isAdmin}}
         <a href="/theme-edit/{{cards.id}}">Редактировать</a>
+        <form action="/deleteTheme" method="POST">
+         <input type="hidden" name="id" value="{{cards.id}}">
+            <button>Удалить</button>
+            <input type="hidden" name="_csrf" value="{{csrf}}">
+        </form>
+        
         {{/if}}
         <h1>{{cards.title}}</h1>
         <p>{{cards.description}}</p>
