@@ -31,25 +31,15 @@ router.post('/theme-edit', auth, admin, async (req, res) => {
 
 
 
-router.post('/theme', auth, admin, async (req, res) => {
+router.post('/deleteTheme', auth, admin, async (req, res) => {
     try {
-        const cards = await Card.findById(req.body.id)
-        
-        const toChange = {}
-        
-        if(req.file) {
-            console.log(req.file)
-            toChange.question = req.file.path
-        }
-
-        Object.assign(cards, toChange)
-        await cards.save()
+        const id = req.body.id
+        await Card.deleteOne({_id: id})
         res.redirect('/card')
-    } catch (error) {
+      } catch (error) {
         console.log(error)
-    }
+      }
 })
-
 
 
 module.exports = router 
