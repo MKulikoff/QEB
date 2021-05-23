@@ -1,54 +1,55 @@
-<div class="profile_section">
+<div class="main_container">
     <div class="profile_container">
-        <form class="profile_form" action="/profile" method="POST" enctype="multipart/form-data">
-            {{#if user.avatarUrl}}
-        <div class="profile_image">
-            <img src="/{{user.avatarUrl}}" alt="avatar-{{user.name}}">
-            <label>
-            <input type="file" name="avatar" class="avatar_input">  
-            </label> 
-            <input type="hidden" name="_csrf" value="{{csrf}}">
-            <button class="profile_img_btn" type="submit">Сменить аватар</button>
-            </div>
-        {{else}}
-        <div class="profile_image">
-        <img class="avatar_img" src="https://www.vanrackingsolutions.co.uk/images/media/medium/no_image.png" alt=""> 
-            <label>
-            <input type="file" name="avatar" class="avatar_input">  
-            </label> 
-            <input type="hidden" name="_csrf" value="{{csrf}}">
-            <button class="profile_img_btn" type="submit" name="avatar">Загрузить аватар</button>
-            </div>
-        </div>
+        <form action="/profile" method="POST" enctype="multipart/form-data">
+            <div class="profile_form">
+                {{#if user.avatarUrl}}
+                <div class="profile_image">
+                    <img src="/{{user.avatarUrl}}" width="500" height="500" alt="avatar-{{user.name}}">
+                </div>
+                {{else}}
+                <div class="profile_image">
+                    <img class="avatar_img" width="500" height="500" src="https://www.vanrackingsolutions.co.uk/images/media/medium/no_image.png"
+                        alt="">
+                </div>
+        </form>
         {{/if}}
         <div class="profile_info">
             <div class="form-control">
-                <label for="nickname">Никнейм</label>
-                <input type="text" disabled=true value="{{user.nickname}}">
+                <label for="nickname" class="login_label">Никнейм</label>
+                <input type="text" class="login_input" disabled=true value="{{user.nickname}}">
             </div>
             <div class="form-control">
-                <label for="email">Email</label>
-                <input type="text" disabled=true value="{{user.email}}"> 
+                <label for="email" class="login_label">Email</label>
+                <input type="text" class="login_input" disabled=true value="{{user.email}}">
             </div>
             <div class="form-control">
-                <label for="firstName">Имя</label>
-                <input type="text" name="name" value="{{user.firstName}}">
+                <label for="firstName" class="login_label">Имя</label>
+                <input type="text" name="name" class="login_input" value="{{user.firstName}}">
             </div>
             <div class="form-control">
-                <label for="lastName">Фамилия</label>
-                <input type="text" name="lastname" value="{{user.lastName}}">
+                <label for="lastName" class="login_label">Фамилия</label>
+                <input type="text" name="lastname" class="login_input" value="{{user.lastName}}">
             </div>
             <div class="form-control">
-                <label for="age">Возраст</label>
-                <input type="number" name="age" min="1" max="99" value="{{user.age}}">
+                <label for="age" class="login_label">Возраст</label>
+                <input type="number" name="age" class="login_input" min="1" max="99" value="{{user.age}}">
             </div>
             <div class="form-control">
-                <label for="raiting">Рейтинг</label>
-                <input type="number" disabled="true" name="raiting" value="{{user.raiting}}">
+                <label for="raiting" class="login_label">Рейтинг</label>
+                <input type="number" disabled="true" name="raiting" class="login_input" value="{{user.raiting}}">
             </div>
-            <button class="profile_edit_btn" type="submit">Редактировать</button>
         </div>
-        
-        </form>
+    </div>
+    <div class="profile_edit_btn">
+        <div class="avatar_btn_container">
+            <label>
+                <input type="file" name="avatar" class="avatar_input">
+                <button class="btn" type="submit" name="avatar">Загрузить аватар</button>
+            </label>
+        </div>
+        <div class="edit_btn_container">
+            <button class="btn" type="submit">Редактировать</button>
+        </div>
+        <input type="hidden" name="_csrf" value="{{csrf}}">
     </div>
 </div>

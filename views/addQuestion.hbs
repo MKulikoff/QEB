@@ -1,54 +1,49 @@
-<div class="add_section">
-<div class="add_container">
-  <div class="add_h">
-    <h1>Добавить новый вопрос</h1>
-  </div>
+<div class="addQuestion_container">
+      <div class="add_container">
+            <h1>Добавить новый вопрос</h1>
+            {{#if error}}
+            <p class="alert">{{error}}</p>
+            {{/if}}
 
-  {{#if error}}
-    <p class="alert">{{error}}</p>
-  {{/if}}
+            <form action="/addQuestion" method="POST" novalidate>
+                  <div class="input-field">
+                        <label for="questionTitle">Вопрос</label>
+                        <input name="questionTitle" type="text" class="validate" required value="{{question.title}}">
+                        <span class="helper-text" data-error="Введите вопрос"></span>
+                  </div>
 
-  <form action="/addQuestion" method="POST" novalidate>
-    <div class="input-field">
-          <input name="questionTitle" type="text" class="validate" required value="{{question.title}}">
-          <label for="questionTitle">Вопрос</label>
-          <span class="helper-text" data-error="Введите вопрос"></span>
-    </div>  
+                  <div class="input-field">
+                        <label for="optionA">Вариант А</label>
+                        <input name="optionA" type="text" class="validate" required value="{{question.optionA}}">
+                        <span class="helper-text" data-error="Укажите вариант А"></span>
+                  </div>
 
-     <div class="input-field">
-          <input name="optionA" type="text" class="validate" required value="{{question.optionA}}">
-          <label for="optionA">Вариант А</label>
-          <span class="helper-text" data-error="Укажите вариант А"></span>
-    </div> 
+                  <div class="input-field">
+                        <label for="optionB">Вариант В</label>
+                        <input name="optionB" type="text" class="validate" required value="{{question.optionB}}">
+                        <span class="helper-text" data-error="Укажите вариант B"></span>
+                  </div>
 
-    <div class="input-field">
-          <input name="optionB" type="text" class="validate" required value="{{question.optionB}}">
-          <label for="optionB">Вариант В</label>
-          <span class="helper-text" data-error="Укажите вариант B"></span>
-    </div> 
+                  <div class="input-field">
+                        <label for="optionC">Вариант C</label>
+                        <input name="optionC" type="text" class="validate" required value="{{question.optionC}}">
+                        <span class="helper-text" data-error="Укажите вариант C"></span>
+                  </div>
 
-    <div class="input-field">
-          <input name="optionC" type="text" class="validate" required value="{{question.optionC}}">
-          <label for="optionC">Вариант C</label>
-          <span class="helper-text" data-error="Укажите вариант C"></span>
-    </div> 
+                  <div class="input-field">
+                        <label for="optionD">Вариант D</label>
+                        <input name="optionD" type="text" class="validate" required value="{{question.optionD}}">
+                        <span class="helper-text" data-error="Укажите вариант D"></span>
+                  </div>
 
-    <div class="input-field">
-          <input name="optionD" type="text" class="validate" required value="{{question.optionD}}">
-          <label for="optionD">Вариант D</label>
-          <span class="helper-text" data-error="Укажите вариант D"></span>
-    </div> 
+                  <div class="input-field">
+                        <label for="correctOption">Правильный вариант</label>
+                        <input name="correctOption" type="text" class="validate" placeholder="Например: А" required value="{{question.correct}}">
+                        <span class="helper-text" data-error="Укажите правильный вариант"></span>
+                  </div>
 
-    <div class="input-field">
-          <input name="correctOption" type="text" class="validate" required value="{{question.correct}}">
-          <label for="correctOption">Правильный вариант</label>
-          <span class="helper-text" data-error="Укажите правильный вариант"></span>
-    </div> 
-
-  
-
-    <button class="btn btn-primary">Добавить</button>
-      <input type="hidden" name="_csrf" value="{{csrf}}">
-  </form>
-</div>
+                  <button class="btn">Добавить</button>
+                  <input type="hidden" name="_csrf" value="{{csrf}}">
+            </form>
+      </div>
 </div>

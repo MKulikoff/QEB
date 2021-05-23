@@ -1,0 +1,38 @@
+<div class="quiz hidden">
+    <div class="quiz_container">
+        <div class="quiz_header">
+            <input type="hidden" name="id" value="{{question._id}}">
+            <h2 class="quiz_question"></h2>
+            <ul class="quiz_ul">
+                <li class="quiz_options">
+                    <input type="radio" name="answer" value="optionA" class="quiz_input" id="A" />
+                    <label for="A" class="answer" id="a_answer"></label>
+                </li>
+
+                <li class="quiz_options">
+                    <input type="radio" name="answer" value="optionB" class="quiz_input" id="B" />
+                    <label for="B" class="answer" id="b_answer"></label>
+                </li>
+
+                <li class="quiz_options">
+                    <input type="radio" name="answer" value="optionC" class="quiz_input" id="C" />
+                    <label for="C" class="answer" id="c_answer"></label>
+                </li>
+
+                <li class="quiz_options">
+                    <input type="radio" name="answer" value="optionD" class="quiz_input" id="D" />
+                    <label for="D" class="answer" id="d_answer"></label>
+                </li>
+            </ul>
+
+            <input type="hidden" class="hidden_answer" />
+        </div>
+        <button type="submit" class="quiz_btn" id="submit" name="submit">Ответить</button>
+    </div>
+</div>
+
+<div class="start_quiz_container">
+    <div class="btn_wrapper">
+        <button class="quizStart_btn btn">Начать игру</button>
+    </div>
+</div>

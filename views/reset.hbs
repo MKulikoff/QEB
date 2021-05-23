@@ -1,15 +1,17 @@
-<div class="container">
- <form action="/reset" class="auth_form" method="POST">
-  <div class="form-control">
-           <h1>Сброс пароля</h1>
+<div class="main_container">
+  <div class="container">
+    <form action="/reset" class="auth_form" method="POST">
+      <div class="form-control">
+        <h1>Сброс пароля</h1>
 
-            <div class="form-control">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="Enter your email">
-            </div>
-          
-           <input type="hidden" name="_csrf" value="{{csrf}}">
+        <div class="form-control">
+          <label for="email" class="login_label">Email</label>
+          <input type="email" id="email" name="email" class="login_input" placeholder="Enter your email">
+        </div>
 
-          <button class="btn" type="submit">Сброс</button>
+        <input type="hidden" name="_csrf" value="{{csrf}}">
+
+        <button class="btn" type="submit">Сброс</button>
+      </div>
   </div>
 </div>

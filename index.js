@@ -4,6 +4,7 @@ const flash = require('connect-flash');
 const express = require('express') // импорт Express, библиотека, модуль
 // const multer = require('multer')
 const Handlebars = require('handlebars')
+const bodyParser = require('body-parser')
 const exphbs = require('express-handlebars') //Установка HTML пакета
 const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access')
 const mongoose = require('mongoose')
@@ -24,6 +25,7 @@ const themeRouters = require('./routes/theme')
 const addQuestionRouters = require('./routes/addQuestions')
 const questionsRouters = require('./routes/questions')
 const editQuestionRouters = require('./routes/editQuestions')
+const quizRouters = require('./routes/quiz')
 //Middleware
 const varMiddleware =  require('./middleware/variables')
 const notfoundMiddleware = require('./middleware/notfound')
@@ -55,9 +57,11 @@ app.use(session({
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')))
+app.use(bodyParser.urlencoded({ extended: false }))
 app.use('/images', express.static(path.join(__dirname, 'images')))
 app.use('/questions', express.static(path.join(__dirname, 'questions')))
 app.use(express.urlencoded({extended: true}))
+
 
 
 app.use(profileFileMiddleware.single('avatar'))
@@ -79,6 +83,7 @@ app.use(themeRouters)
 app.use(addQuestionRouters)
 app.use(questionsRouters)
 app.use(editQuestionRouters)
+app.use(quizRouters)
 
 app.use(notfoundMiddleware)
 

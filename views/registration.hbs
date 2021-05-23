@@ -1,3 +1,4 @@
+<div class="main_container">
 <div class="registration">
        {{#if registrationError}}
             <p class="alert">{{registrationError}}</p>
@@ -6,23 +7,23 @@
 <div class="container">
         <form class="auth_form" action="registration" method="POST">
             <div class="form-control">
-                <label for="nickname">Create your nickname</label>
-                <input type="text" id="nickname" name="nickname" placeholder="Enter your nickname" class="validate">
+                <label for="nickname" class="login_label">Create your nickname</label>
+                <input type="text" id="nickname" name="nickname" class="login_input" placeholder="Enter your nickname" class="validate">
             </div>
 
             <div class="form-control">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="Enter your email" class="validate">
+                <label for="email" class="login_label">Email</label>
+                <input type="email" id="email" name="email" class="login_input" placeholder="Enter your email" class="validate">
             </div>
 
             <div class="form-control">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Password" class="validate">
+                <label for="password" class="login_label">Password</label>
+                <input type="password" id="password" name="password" class="login_input" placeholder="Password" class="validate">
             </div>
 
             <div class="form-control">
-                <label for="rpassword">Repeat password</label>
-                <input type="password" id="rpassword"  name="rpassword" placeholder="Repeat password" class="validate">
+                <label for="rpassword" class="login_label">Repeat password</label>
+                <input type="password" id="rpassword"  name="rpassword"  class="login_input" placeholder="Repeat password" class="validate">
             </div>
              <input type="hidden" name="isAdministrator" value="false">
              <input type="hidden" name="_csrf" value="{{csrf}}">
@@ -31,4 +32,5 @@
             <small>Have an account already? <a href="/login">Log in</a></small>
         </form>
     </div>
+</div>
 </div>
