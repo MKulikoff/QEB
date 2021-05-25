@@ -1,7 +1,13 @@
 <form action="/theme-edit" method="POST">
-    <textarea class="materialize-textarea" name="text">{{card.text}}</textarea>
-    <label for="textarea1"></label>
-    <input type="hidden" name="id" value="{{card.id}}">
-    <input type="hidden" name="_csrf" value="{{csrf}}">
-    <button class="btn" type="submit">Сохранить изменения</button>
+    <div class="main_container">
+        <div class="theme_edit_container">
+            {{!-- <textarea class="materialize-textarea" name="text">{{card.text}}</textarea>
+            <label for="textarea1"></label> --}}
+            <div id="editor-container">{{card.text}}</div>
+            <input type="hidden" name="text" value="">
+            <input type="hidden" name="id" value="{{card.id}}">
+            <input type="hidden" name="_csrf" value="{{csrf}}">
+            <button class="btn edit_theme_save" type="submit">Сохранить изменения</button>
+        </div>
+    </div>
 </form>

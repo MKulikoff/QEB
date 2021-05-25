@@ -419,7 +419,30 @@ text-align: center;
 
 .theme {
     text-align: center;
-    max-width: 50%; 
+    padding: 20px;
+    width: 80%; 
+    background-color: #FAEBD7;
+}
+
+
+.theme_text {
+    text-align: left;
+}
+
+/* Theme Edit */
+
+#editor-container {
+    height: 375px;
+    width: 800px;
+  }
+
+.theme_edit_container {
+    background-color: whitesmoke;
+}
+
+.theme_edit_container .btn{
+    padding: 10px;
+    margin: 0px;
 }
 
 /* Quiz */
