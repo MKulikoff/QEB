@@ -424,6 +424,18 @@ text-align: center;
 
 /* Quiz */
 
+.player_list {
+    text-align: left;
+    width: fit-content;
+    background-color: #FAEBD7;
+    padding: 10px;
+    margin-right: 25px;
+}
+
+.player_list li {
+    list-style-type: none;
+    padding: 1em;
+}
 .start_quiz_container {
     position: relative;
     display: flex;
@@ -442,8 +454,8 @@ text-align: center;
     display: flex;
     height: 80vh;
     margin: 0;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 }
 .quiz_container { 
     position: relative;

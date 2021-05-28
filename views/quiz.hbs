@@ -1,38 +1,44 @@
-<div class="quiz hidden">
-    <div class="quiz_container">
-        <div class="quiz_header">
-            <input type="hidden" name="id" value="{{question._id}}">
-            <h2 class="quiz_question"></h2>
-            <ul class="quiz_ul">
-                <li class="quiz_options">
-                    <input type="radio" name="answer" value="optionA" class="quiz_input" id="A" />
-                    <label for="A" class="answer" id="a_answer"></label>
-                </li>
-
-                <li class="quiz_options">
-                    <input type="radio" name="answer" value="optionB" class="quiz_input" id="B" />
-                    <label for="B" class="answer" id="b_answer"></label>
-                </li>
-
-                <li class="quiz_options">
-                    <input type="radio" name="answer" value="optionC" class="quiz_input" id="C" />
-                    <label for="C" class="answer" id="c_answer"></label>
-                </li>
-
-                <li class="quiz_options">
-                    <input type="radio" name="answer" value="optionD" class="quiz_input" id="D" />
-                    <label for="D" class="answer" id="d_answer"></label>
-                </li>
-            </ul>
-
-            <input type="hidden" class="hidden_answer" />
+    <div class="quiz">
+        <div class="player_list hidden">
+            <h3>Список игроков:</h3>
+            <li>{{user.nickname}}</li>
         </div>
-        <button type="submit" class="quiz_btn" id="submit" name="submit">Ответить</button>
-    </div>
-</div>
+        <div class="waiting_room hidden">
+            <h2 class="wait_msg" style="text-align: center; margin: 0; top: 0; left: 50;">Ожидаем игроков</h2>
+        </div>
+        <h2 class="wait_timer"></h2>
+        <div class="quiz_container hidden">
+            <div class="quiz_header">
+                <input type="hidden" name="id" value="{{question._id}}">
+                <h2 class="quiz_question"></h2>
+                <ul class="quiz_ul">
+                    <li class="quiz_options">
+                        <input type="radio" name="answer" value="optionA" class="quiz_input" id="A" />
+                        <label for="A" class="answer" id="a_answer"></label>
+                    </li>
 
-<div class="start_quiz_container">
-    <div class="btn_wrapper">
-        <button class="quizStart_btn btn">Начать игру</button>
+                    <li class="quiz_options">
+                        <input type="radio" name="answer" value="optionB" class="quiz_input" id="B" />
+                        <label for="B" class="answer" id="b_answer"></label>
+                    </li>
+
+                    <li class="quiz_options">
+                        <input type="radio" name="answer" value="optionC" class="quiz_input" id="C" />
+                        <label for="C" class="answer" id="c_answer"></label>
+                    </li>
+
+                    <li class="quiz_options">
+                        <input type="radio" name="answer" value="optionD" class="quiz_input" id="D" />
+                        <label for="D" class="answer" id="d_answer"></label>
+                    </li>
+                </ul>
+
+                <input type="hidden" class="hidden_answer" />
+            </div>
+            <button type="submit" class="quiz_btn" id="submit" name="submit">Ответить</button>
+        </div>
     </div>
-</div>
+<input type="hidden" class="nickname" value="{{user.nickname}}">
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/game.js"></script>

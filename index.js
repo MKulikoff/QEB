@@ -1,7 +1,8 @@
 //Imports
 const csurf = require('csurf')
-const flash = require('connect-flash');
+const flash = require('connect-flash')
 const express = require('express') // импорт Express, библиотека, модуль
+const socketIO = require('socket.io')
 // const multer = require('multer')
 const Handlebars = require('handlebars')
 const bodyParser = require('body-parser')
@@ -38,6 +39,7 @@ app.engine('hbs', exphbs({
     handlebars: allowInsecurePrototypeAccess(Handlebars)
 }));
 app.set('view engine', 'hbs');
+
 //Sessions
 const store = new MongoDBStore({
     uri: keys.MONGO_URI,
@@ -89,14 +91,76 @@ app.use(notfoundMiddleware)
 
 const PORT = process.env.PORT || 5000
 
-const start = async () => {
-    try {
-        await mongoose.connect(keys.MONGO_URI)
-        app.listen(PORT, () => 
-            console.log(`Server started on ${PORT}`)) 
-    } catch (error) {
-        console.log(error)
-    }
+const handleListening = async () => {
+  try {
+    await mongoose.connect(keys.MONGO_URI)
+  } catch (error) {
+    console.log(error)
+  }
+  console.log(`Server started on ${PORT}`)
 }
 
-start() 
+const server = app.listen(PORT, handleListening)
+
+const io = socketIO(server)
+
+let sockets = []
+let finalPoints = []
+
+
+io.on('connection', (socket) => {
+
+  io.emit('peopleOnline', 'User connected')
+
+  //Number of connected users
+
+  io.emit('numberOfConnected', socket.adapter.sids.size);
+
+   //Get user nickname 
+   socket.on('getNickname', (getNickname) => {
+    socket.nickname = getNickname
+    sockets.push({id: socket.id, points: 0, nickname: getNickname})
+    io.emit('stateUpdate', sockets)
+  })
+
+  const addPoints = id => {
+    sockets = sockets.map(socket => {
+      if(socket.id === id) {
+        socket.points++
+      } 
+        return socket
+      })
+    io.emit('stateUpdate', sockets)
+  }
+
+  //Get user score
+  socket.on('scoreUpdate', (socketID) => {
+    addPoints(socketID)
+  })
+
+  const selectWinner = id => {
+    sockets = sockets.map(socket => {
+      if(socket.id === id) {
+        finalPoints.push(socket)
+      }
+      console.log('Out socket:', socket)
+      return socket
+    })
+  }
+
+  //Select winner 
+
+  socket.on('sumPoints', () => {
+    io.emit('stateUpdate', sockets)
+  })
+
+  //User disconnect
+  socket.on('disconnect', () => {
+    sockets = sockets.filter(aSocket => aSocket.id !== socket.id)
+    io.emit('stateUpdate', sockets)
+  });  
+});
+
+
+
+
