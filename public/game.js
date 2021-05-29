@@ -1,6 +1,5 @@
 let socket = io()
 let numberOfPeople = 0
-let secondPlayerNickname = document.getElementById("secondPlayer")
 let nickname = document.querySelector(".nickname")
 
 socket.emit('getNickname', nickname.value)
@@ -31,7 +30,6 @@ function  addPlayers(players) {
 }
 const playerList = document.querySelector('.player_list')
 const waitMsg = document.querySelector('.wait_msg')
-const btn = document.querySelector(".quizStart_btn")
 const mainContainer = document.querySelector(".quiz_wrapper")
 const quiz = document.querySelector('.quiz')
 const quizContainer = document.querySelector(".quiz_container")
@@ -45,7 +43,7 @@ const a_answer = document.getElementById('a_answer')
 const b_answer = document.getElementById('b_answer')
 const c_answer = document.getElementById('c_answer')
 const d_answer = document.getElementById('d_answer')
-const submitBtn = document.getElementById('submit')
+const submitBtn = document.getElementById('answerBtn')
 const hiddenAnswer = document.querySelector('hidden_answer')
 
 let time = 10
