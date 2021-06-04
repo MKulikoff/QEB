@@ -42,6 +42,15 @@
                         <span class="helper-text" data-error="Укажите правильный вариант"></span>
                   </div>
 
+                  <div class="input-field">
+                        <label for="selectTheme">Выберите тему</label>
+                        <select name="selectTheme" id="select">
+                               {{#each cards}}
+                              <option value="">{{title}}</option>
+                              {{/each}}
+                        </select>
+                  </div>
+
                   <button class="btn">Добавить</button>
                   <input type="hidden" name="_csrf" value="{{csrf}}">
             </form>
