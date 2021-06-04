@@ -1,12 +1,15 @@
 const {Router} = require('express')
 const auth = require('../middleware/auth')
 const Question = require('../models/question')
+const Card = require('../models/card')
 const admin = require('../middleware/admin')
 const router = Router()
 
 router.get('/addQuestion', auth, admin, async (req, res) => {
+    const cards = await Card.find()
     res.render('addQuestion', {
-        title: 'Добавить новый вопрос'
+        title: 'Добавить новый вопрос',
+        cards
     })
     
 })

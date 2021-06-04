@@ -25,7 +25,10 @@ const questionSchema = new Schema({
         type: String, 
         required: true
     },
-
+    theme: {
+        type: String,
+        required: true
+    }
 })
 
 module.exports = model('Question', questionSchema)
