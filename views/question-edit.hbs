@@ -45,6 +45,15 @@
                         <span class="helper-text" data-error="Укажите правильный вариант"></span>
                   </div>
 
+                  <div class="input-field">
+                        <label for="selectTheme">Выберите тему</label>
+                        <select name="theme" id="select">
+                               {{#each cards}}
+                              <option>{{title}}</option>
+                              {{/each}}
+                        </select>
+                  </div>
+
                   <div class="edit_question_btn">
                         <input type="hidden" name="id" value="{{question.id}}">
                         <button class="btn">Сохранить изменения</button>
@@ -52,6 +61,7 @@
             </form>
 
             <form action="/deleteQuestion" method="POST">
+            <input type="hidden" name="id" value="{{question.id}}">
                   <button class="btn">Удалить</button>
                   <input type="hidden" name="_csrf" value="{{csrf}}">
             </form>

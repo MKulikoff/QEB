@@ -22,7 +22,7 @@ router.post('/addQuestion', auth, admin, async (req, res) => {
         optionC: req.body.optionC,
         optionD: req.body.optionD,
         correctOption: req.body.correctOption,
-        theme: req.body.selectTheme
+        theme: req.body.theme
     })
 
     try {
