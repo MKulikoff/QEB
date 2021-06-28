@@ -100,8 +100,6 @@
     }
 
     function selectWinner(players) {
-        console.log(players[0].nickname)
-        console.log(players[1].nickname)
         if (players[0].points > players[1].points) {
             playerList.innerHTML = `Победитель ${players[0].nickname} c результатом ${players[0].points}/5`
         } if (players[0].points == players[1].points) {
@@ -115,6 +113,8 @@
 
     submitBtn.addEventListener('click', () => {
         let answer = getSelected()
+        submitBtn.classList.remove("quiz_btn")
+        submitBtn.classList.add("disBtn")
         candidateAnswerList.push(answer)
         if (answer == quizData[i].correctOption) {
             score++
@@ -131,6 +131,8 @@
             numberOfQuestion++
             createQuiz(quizData)
             submitBtn.disabled = false
+            submitBtn.classList.remove("disBtn")
+            submitBtn.classList.add("quiz_btn")
         } else {
             clearInterval(interval)
             socket.emit('sumPoints')
@@ -146,7 +148,9 @@
             for (let i = 0; i < 5; i++) {
                 let answerContainer = document.createElement('div')
                 answerContainer.classList.add('answer_card')
-
+                if(typeof candidateAnswerList[i] == "undefined") {
+                    candidateAnswerList[i] = "Вы не дали ответ на этот вопрос"
+                }
                 answerContainer.innerHTML +=
                     `
                             <span>Вопрос: ${quizData[i].title}</span>

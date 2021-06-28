@@ -9,7 +9,8 @@ router.get('/card', auth, async (req, res) => {
     const cards = await Card.find()
     res.render('card', {
         title: 'Выберите тему',
-        cards
+        cards,
+        user: req.user.toObject()
     })
     
 })
@@ -19,7 +20,8 @@ router.get('/theme/:id', auth, async (req, res) => {
             const cards = await Card.findById(req.params.id)
             res.render('theme', {
             title: `${cards.title}`,
-            cards
+            cards,
+            user: req.user.toObject()
         })
         
     } catch (error) {

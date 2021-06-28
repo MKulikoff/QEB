@@ -6,6 +6,7 @@
 }
 
 body {
+    position: relative;
     align-items: center;
     justify-content: center;
     height: 100vh;
@@ -45,7 +46,6 @@ h1, h2 {
     position: relative;
     width: 100%;
     display: flex;
-    margin-bottom: 1em;
     justify-content: space-between;
     top: 0; 
     left: 0; 
@@ -62,9 +62,34 @@ li a {
     color: white; 
     font-size: 20px;
     text-decoration: none;
-    
 }
 
+li:hover {
+    color: lightcoral;
+}
+
+li a:hover {
+    color: lightcoral;
+}
+
+.dropdown {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    background-color:rgba(143, 139, 102, 0.8);
+    width: fit-content;
+    text-align: center;
+    right: 0;
+    z-index: 1;
+}
+
+
+.userName { 
+    color: white; 
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+}
 /* Authentication */
 
 .container {
@@ -142,48 +167,7 @@ li a {
 
 .btn:hover {
     background-color: lightcoral;
-    border: 2px solid lightcoral;
-
 }
-
-/* .btn-ghost {
-    background-color: transparent;
-    border-color: #ecf2ff;
-    color: #141c2c;
-}
-
-.btn img {
-    margin-right: 5px;
-    width: 20px;
-}
-
-.features {
-    flex: 1.5;
-    padding: 40px;
-}
-
-.feature {
-    position: relative;
-    padding-left: 30px;
-    margin: 40px 0;
-}
-
-.feature i {
-    color: #2762eb;
-    position: absolute;
-    top: 5px;
-    left: 0;
-}
-
-.feature h3 {
-    margin: 0;
-}
-
-.feature p {
-    font-size: 14px;
-    line-height: 1.8;
-    margin: 5px 0;
-} */
 
 .alert {
     border-radius: 10px;
@@ -196,9 +180,11 @@ li a {
 /* Profile */
 
 .profile_container {
+    margin-top: 1em;
     padding: 10px;
     background-color: whitesmoke;
     border-radius: 10px;
+    box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
 }
 
 .profile_form {
@@ -256,16 +242,18 @@ text-align: center;
 
 .addQuestion_container {
     width: 100%;
+    margin-top: 1em;
     display: flex;
     justify-content: center;
-    margin: 0;
 }
 .add_container {
-    width: 90%;
+    position: relative;
+    width: 75%;
     text-align: center;
     background-color: #FAEBD7;
     padding: 5px;
     margin-bottom: 15px;
+    box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
 }
 
 .input-field {
@@ -295,7 +283,7 @@ text-align: center;
     margin: 8px 0px;
     text-align: left;
 }
-.add_container button {
+.add_container .btn {
     width: 25%;
     align-items: center;
     position: relative;
@@ -316,10 +304,11 @@ text-align: center;
 }
 
 .card {
-    width: 80%;
+    width: 75%;
     background-color: #FAEBD7;
     padding: 15px 10px;
     margin: 20px 0px;
+    box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
 }
 
 .card_title {
@@ -377,7 +366,7 @@ text-align: center;
     justify-content: center;
     text-align: center;
     width: 100%; 
-    margin: 0;
+    margin-top: 1em;
 }
 
 .question_card {
@@ -386,6 +375,7 @@ text-align: center;
     background-color: #FAEBD7;
     padding: 10px 5px;
     margin: 10px 0px;
+    box-shadow: 0 7px 14px rgb(50 50 93 / 10%), 0 3px 6px rgb(0 0 0 / 8%);
 }
 
 
@@ -405,24 +395,67 @@ text-align: center;
 }
 
 .editQuestion_container {
+    position: relative;
     width: 100%;
     display: flex;
     justify-content: center;
-    margin: 0;
+    margin-top: 1em;
 }
 
+.deleteBtn {
+    margin: 10px 15px;
+    top: 0;
+    right: 0;
+    position: absolute;
+    width: 45px;
+    height: 42px;
+    cursor: pointer;
+    background-color: coral;
+    border: 2px solid lightcoral;
+    border-radius: 3px;
+    color: white;
+    padding: 5px 10px;
+    font-size: 20px;
+}
+
+.deleteBtn:hover {
+    background-color: lightcoral;
+}
+
+.editBtn {
+    margin: 10px 70px;
+    top: 0;
+    right: 0;
+    position: absolute;
+    width: 45px;
+    height: 42px;
+    cursor: pointer;
+    background-color: coral;
+    border: 2px solid lightcoral;
+    border-radius: 3px;
+    color: white;
+    padding: 5px 10px;
+    font-size: 20px;
+}
+
+.editBtn:hover {
+        background-color: lightcoral;
+}
 /* Theme */
 
 .theme_container {
+    margin-top: 1em;
     display: flex;
     justify-content: center;
 }
 
 .theme {
+    position: relative;
     text-align: center;
     padding: 20px;
     width: 80%; 
     background-color: #FAEBD7;
+    box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
 }
 
 
@@ -454,6 +487,7 @@ text-align: center;
     background-color: #FAEBD7;
     padding: 10px;
     margin-right: 25px;
+    box-shadow: 0 7px 14px rgb(50 50 93 / 10%), 0 3px 6px rgb(0 0 0 / 8%);
 }
 
 .player_list li {
@@ -475,9 +509,9 @@ text-align: center;
 }
 .quiz {
     position: relative;
+    margin-top: 1em;
     display: flex;
     height: 80vh;
-    margin: 0;
     align-items: center;
     justify-content: center;
 }
@@ -487,6 +521,7 @@ text-align: center;
     width: 800px;
     border-radius: 20px;
     background: #FAEBD7;
+    box-shadow: 0 7px 14px rgb(50 50 93 / 10%), 0 3px 6px rgb(0 0 0 / 8%);
 }
 
 .quiz_container h2 {
@@ -511,6 +546,24 @@ text-align: center;
     color: white;
     padding: 1rem;
 }
+
+.disBtn {
+    background: lightgray;
+    color: white;
+    cursor: not-allowed;
+    border: none;
+    display: block;
+    width: 100%;
+    font-family: inherit;
+    font-size: 1.3rem;
+    padding: 1rem;
+}
+
+/* .disBtn:hover {
+    background: grey;
+    color: white;
+    cursor: not-allowed;
+} */
 
 .quiz_options {
     padding: 1rem;
@@ -561,7 +614,7 @@ text-align: center;
 }
 
 .quiz_container .btn {
-    border-radius: 20px;
+    width: 100%;
 }
 
 .hidden {

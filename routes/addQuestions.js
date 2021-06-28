@@ -9,7 +9,8 @@ router.get('/addQuestion', auth, admin, async (req, res) => {
     const cards = await Card.find()
     res.render('addQuestion', {
         title: 'Добавить новый вопрос',
-        cards
+        cards,
+        user: req.user.toObject()
     })
     
 })
@@ -22,7 +23,7 @@ router.post('/addQuestion', auth, admin, async (req, res) => {
         optionC: req.body.optionC,
         optionD: req.body.optionD,
         correctOption: req.body.correctOption,
-        theme: req.body.theme
+        theme: req.body.selectTheme
     })
 
     try {

@@ -7,23 +7,23 @@
             <form action="/login" class="auth_form" method="POST">
                 <div class="form-control">
                     <label for="email" class="login_label">Email</label>
-                    <input type="email" id="email" name="email" class="login_input" placeholder="Enter your email">
+                    <input type="email" id="email" name="email" class="login_input" placeholder="Введите ваш email">
                 </div>
 
                 <div class="form-control">
-                    <label for="password" class="login_label">Password</label>
-                    <input type="password" id="password" name="password" class="login_input" placeholder="Password">
+                    <label for="password" class="login_label">Пароль</label>
+                    <input type="password" id="password" name="password" class="login_input" placeholder="Пароль">
                 </div>
 
                 <div class="checkbox-container">
-                    <a href="/reset">Forgot Password</a>
+                    <a href="/reset">Забыл пароль</a>
                 </div>
 
                 <input type="hidden" name="_csrf" value="{{csrf}}">
 
-                <button class="btn" type="submit">Log In</button>
+                <button class="btn" type="submit">Войти</button>
 
-                <small>Don't have an account? <a href="/registration">Sign up</a></small>
+                <small>Еще нет аккаунта? <a href="/registration">Регистрация</a></small>
             </form>
 
         </div>

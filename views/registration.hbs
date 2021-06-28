@@ -7,29 +7,29 @@
 <div class="container">
         <form class="auth_form" action="registration" method="POST">
             <div class="form-control">
-                <label for="nickname" class="login_label">Create your nickname</label>
-                <input type="text" id="nickname" name="nickname" class="login_input" placeholder="Enter your nickname" class="validate">
+                <label for="nickname" class="login_label">Никнейм</label>
+                <input type="text" id="nickname" name="nickname" class="login_input" placeholder="Введите никнейм" class="validate">
             </div>
 
             <div class="form-control">
                 <label for="email" class="login_label">Email</label>
-                <input type="email" id="email" name="email" class="login_input" placeholder="Enter your email" class="validate">
+                <input type="email" id="email" name="email" class="login_input" placeholder="Введите ваш email" class="validate">
             </div>
 
             <div class="form-control">
-                <label for="password" class="login_label">Password</label>
-                <input type="password" id="password" name="password" class="login_input" placeholder="Password" class="validate">
+                <label for="password" class="login_label">Пароль</label>
+                <input type="password" id="password" name="password" class="login_input" placeholder="Пароль" class="validate">
             </div>
 
             <div class="form-control">
-                <label for="rpassword" class="login_label">Repeat password</label>
-                <input type="password" id="rpassword"  name="rpassword"  class="login_input" placeholder="Repeat password" class="validate">
+                <label for="rpassword" class="login_label">Подтвердите пароль</label>
+                <input type="password" id="rpassword"  name="rpassword"  class="login_input" placeholder="Введите пароль повторно" class="validate">
             </div>
              <input type="hidden" name="isAdministrator" value="false">
              <input type="hidden" name="_csrf" value="{{csrf}}">
 
-            <button class="btn" type="submit">Sign Up</button>
-            <small>Have an account already? <a href="/login">Log in</a></small>
+            <button class="btn" type="submit">Зарегистрироваться</button>
+            <small>Уже есть аккаунт? <a href="/login">Войти</a></small>
         </form>
     </div>
 </div>

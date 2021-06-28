@@ -12,7 +12,8 @@ router.get('/editQuestion/:id', auth, admin, async (req, res) => {
     res.render('question-edit', {
         title: 'Редактировать вопрос',
         question,
-        cards
+        cards,
+        user: req.user.toObject()
     })
     
 })

@@ -4,7 +4,7 @@
             <li>{{user.nickname}}</li>
         </div>
         <div class="waiting_room hidden">
-            <h2 class="wait_msg" style="text-align: center; margin: 0; top: 0; left: 50;">Ожидаем игроков</h2>
+            <h2 class="wait_msg" style="text-align: center; margin: 0; top: 0; left: 50;">Игра по теме {{title}} <br> Ожидаем игроков</h2>
         </div>
         <h2 class="wait_timer"></h2>
         <div class="quiz_container hidden">
@@ -39,6 +39,6 @@
         </div>
     </div>
 <input type="hidden" class="nickname" value="{{user.nickname}}">
-
+<input type="hidden" name="themeQuestions" value="{{themeQuestions}}">
 <script src="/socket.io/socket.io.js"></script>
 <script src="/game.js"></script>

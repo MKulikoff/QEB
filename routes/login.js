@@ -130,7 +130,7 @@ router.post('/login', async (req, res) => {
               if (err) {
                 throw err
               } else {
-                    res.redirect('/')
+                    res.redirect('/card')
                 }
             })} 
             else {
