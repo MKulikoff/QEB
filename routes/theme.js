@@ -10,7 +10,8 @@ router.get('/theme-edit/:id', auth, admin, async (req, res) => {
     const card = await Card.findById(req.params.id)
     res.render('theme-edit', {
         title: 'Edit Theme',
-        card
+        card,
+        user: req.user.toObject()
     })
 })
 

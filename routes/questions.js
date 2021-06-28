@@ -8,7 +8,8 @@ router.get('/questions', auth, admin, async (req, res) => {
     const questions = await Question.find()
     res.render('questions', {
         title: 'Cписок вопросов',
-        questions
+        questions,
+        user: req.user.toObject()
     })
     
 })

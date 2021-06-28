@@ -143,7 +143,6 @@ io.on('connection', (socket) => {
       if(socket.id === id) {
         finalPoints.push(socket)
       }
-      console.log('Out socket:', socket)
       return socket
     })
   }

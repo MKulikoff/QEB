@@ -6,7 +6,8 @@ const router = Router()
 
 router.get('/add', auth, admin, async (req, res) => {
     res.render('add', {
-        title: 'Добавить тему'
+        title: 'Добавить тему',
+        user: req.user.toObject()
     })
     
 })

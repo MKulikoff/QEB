@@ -1,8 +1,6 @@
 <form action="/theme-edit" method="POST">
     <div class="main_container">
         <div class="theme_edit_container">
-            {{!-- <textarea class="materialize-textarea" name="text">{{card.text}}</textarea>
-            <label for="textarea1"></label> --}}
             <div id="editor-container">{{card.text}}</div>
             <input type="hidden" name="text" value="">
             <input type="hidden" name="id" value="{{card.id}}">
@@ -11,3 +9,5 @@
         </div>
     </div>
 </form>
+<script src="https://cdn.quilljs.com/1.0.0/quill.js"></script>
+<script src="/editor.js"></script>
