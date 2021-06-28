@@ -20,6 +20,7 @@ router.get('/editQuestion/:id', auth, admin, async (req, res) => {
 
 router.post('/updateQuestion', auth, admin, async (req, res) => {
     const {id} = req.body
+    console.log(req.body)
     delete req.body.id
     await Question.findByIdAndUpdate(id, req.body)
     res.redirect('/questions')
